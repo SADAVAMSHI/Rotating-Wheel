@@ -1,0 +1,87 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(45deg, #9456d6, #d86df0, #000000d2, #2cbdba, #29699b);
+  background-size: 400% 400%;
+  animation: gradientMove 5s infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+
+.wheel-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.wheel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: rotate(0deg); /* Initial rotation */
+  transition: transform 2s ease-in-out; /* Smooth transition */
+}
+
+.wheel-container:hover .wheel {
+  transform: rotate(860deg); /* Rotate clockwise on hover */
+}
+
+/* Segments */
+.segment {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 50%, 100% 0, 100% 100%, 50% 50%);
+  transform-origin: center;
+  border-radius: 50%;
+}
+
+.red {
+  background-color: red;
+  transform: rotate(0deg);
+}
+
+.green {
+  background-color: green;
+  transform: rotate(90deg);
+}
+
+.yellow {
+  background-color: yellow;
+  transform: rotate(180deg);
+}
+
+.blue {
+  background-color: blue;
+  transform: rotate(270deg);
+}
+
+/* Inner Transparent Circle */
+.inner-circle {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 1;
+  background: linear-gradient(45deg, #9456d6, #d86df0, #000000d2, #2cbdba, #29699b);
+  background-size: 400% 400%;
+  animation: gradientMove 5s infinite;
+}
